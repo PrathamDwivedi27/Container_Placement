@@ -1,0 +1,20 @@
+{
+  "total_events": 19508,
+  "placement_events": 9861,
+  "retrieval_events": 9647,
+  "total_reshuffles": 6610,
+  "reshuffles_per_retrieval": 0.6852,
+  "reshuffle_percentage": 40.34,
+  "max_reshuffles_single": 3,
+  "retrievals_with_reshuffles": 3892,
+  "hard_constraint_violations": 0,
+  "placement_failures": 0,
+  "errors": 0,
+  "final_yard_count": 5985,
+  "elapsed_sec": 330.16,
+  "score_reshuffles": 4.9,
+  "score_violations": 10.0,
+  "quantitative_score": 14.9,
+  "strategy": "solution.expected_cost_strategy.ExpectedCostStrategy",
+  "data_dir": "data/test"
+}

@@ -1,5 +1,38 @@
 # Container Yard Placement — Technical Assessment
 
+## Submitted Strategy
+
+`solution/expected_cost_strategy.py` → `ExpectedCostStrategy`
+
+| | Train | Test |
+|---|---|---|
+| Greedy baseline | 0.787 rpr — 10.5 / 40 | 0.769 rpr — 11.3 / 40 |
+| **This strategy** | **0.709 rpr — 13.9 / 40** | **0.685 rpr — 14.9 / 40** |
+
+Zero constraint violations, zero errors. See `docs/design.md` for the approach.
+
+```bash
+# Run on train data
+python -m src.run --strategy solution.expected_cost_strategy.ExpectedCostStrategy \
+    --data-dir data/train -v
+
+# Run on test data and save results (this produces results/results.json)
+python -m src.run --strategy solution.expected_cost_strategy.ExpectedCostStrategy \
+    --data-dir data/test -o results/results.json -v
+
+# Compare against the baseline
+python -m src.run --strategy src.baseline_greedy.GreedyStrategy --data-dir data/test -v
+
+# Unit tests
+python -m pytest tests/ -q
+
+# Validate submission structure
+bash validate_submission.sh
+```
+
+Note: a full run takes ~6 minutes (the strategy scores all 1,920 stacks for every
+arrival); the greedy baseline takes ~5 seconds. Use `-v` to watch progress.
+
 ## Quick Start
 
 ```bash

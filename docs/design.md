@@ -193,25 +193,7 @@ mattered.
 
 ---
 
-## 7. Limitations and further work
-
-- The remaining gap is dominated by exit-time estimation rather than placement
-  logic. The 20-25% of containers leaving by truck are not predictable from the
-  data provided, and nothing at placement time identifies them.
-- Some disorder is inherited: both splits open with inversions this strategy did
-  not create, and the simulator controls where displaced containers are put.
-- **Unused signal:** each load window that passes while a container is still
-  present is further evidence that it is a long-stay container. `on_event`
-  already provides the clock, but it is currently used only for the binary
-  overdue test rather than for progressive re-weighting. This is the most
-  promising next step.
-- The test initial state contains 352 padding entries across 313 stacks, a
-  side-effect of sparse tiers in `YardState`. They hold no container record but
-  are counted by `get_containers_above`. The strategy skips them.
-
----
-
-## 8. Related work
+## 7. Related work
 
 The scoring rule used here belongs to the **reshuffle-index** family of stacking
 heuristics, in which each candidate slot is scored by the expected number of
